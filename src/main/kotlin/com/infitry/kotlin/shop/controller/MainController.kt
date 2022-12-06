@@ -1,19 +1,16 @@
 package com.infitry.kotlin.shop.controller
 
-import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
-import org.springframework.ui.set
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.RestController
 
-@Controller
+@RestController
 class MainController {
 
-    @GetMapping("/test")
+    @GetMapping("/")
     fun main(model: Model): String {
-        println("javaClass = $javaClass")
-        model.addAttribute("title2","test")
-        model["title"] = "testTitle"
-        return "index"
+        println("welcome!!")
+        return "hello"
     }
 
 }
