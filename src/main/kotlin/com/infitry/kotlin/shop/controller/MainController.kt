@@ -6,10 +6,9 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 class MainController {
-
     @GetMapping("/")
     fun main(model: Model): String {
-        println("welcome!!")
+        println("welcome kotlin world!!")
         return "hello"
     }
 
