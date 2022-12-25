@@ -1,6 +1,5 @@
 package com.infitry.kotlin.shop.service
 
-import com.infitry.kotlin.shop.domain.Item
 import com.infitry.kotlin.shop.dto.ItemDto
 import com.infitry.kotlin.shop.repository.ItemRepository
 import org.modelmapper.ModelMapper

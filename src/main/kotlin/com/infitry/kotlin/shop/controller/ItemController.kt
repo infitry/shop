@@ -15,11 +15,11 @@ class ItemController(
 
     @GetMapping
     fun items(): ResponseEntity<List<ItemDto>> {
-        var itemList: List<ItemDto> = itemService.findAllItems()
-        var testItem = ItemDto()
+        val itemList: MutableList<ItemDto> = itemService.findAllItems().toMutableList()
+        val testItem = ItemDto()
         testItem.id = 1
         testItem.name = "test"
         itemList += testItem
-        return ResponseEntity.ok(itemList);
+        return ResponseEntity.ok(itemList)
     }
 }
