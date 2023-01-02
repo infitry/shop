@@ -4,6 +4,7 @@ import com.infitry.kotlin.shop.dto.ItemDto
 import com.infitry.kotlin.shop.service.ItemService
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
@@ -15,11 +16,12 @@ class ItemController(
 
     @GetMapping
     fun items(): ResponseEntity<List<ItemDto>> {
-        val itemList: MutableList<ItemDto> = itemService.findAllItems().toMutableList()
-        val testItem = ItemDto()
-        testItem.id = 1
-        testItem.name = "test"
-        itemList += testItem
+        val itemList: List<ItemDto> = itemService.findAllItems()
         return ResponseEntity.ok(itemList)
+    }
+
+    @GetMapping("/{itemId}")
+    fun items(@PathVariable itemId: Long): ResponseEntity<ItemDto> {
+        return ResponseEntity.ok(itemService.findItem(itemId))
     }
 }
