@@ -43,15 +43,14 @@ dependencies {
 	runtimeOnly("com.h2database:h2")
 	annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
 	annotationProcessor("org.projectlombok:lombok")
-	testImplementation("org.springframework.boot:spring-boot-starter-test")
-	testImplementation("org.springframework.restdocs:spring-restdocs-mockmvc")
-}
-
-tasks.withType<KotlinCompile> {
-	kotlinOptions {
-		freeCompilerArgs = listOf("-Xjsr305=strict")
-		jvmTarget = "17"
+	testImplementation("org.springframework.boot:spring-boot-starter-test") {
+		exclude(module = "junit")
+		exclude(module = "hamcrest-core")
+		exclude(module = "hamcrest-library")
 	}
+	testImplementation("org.springframework.restdocs:spring-restdocs-mockmvc")
+	testImplementation("org.junit.jupiter:junit-jupiter:5.9.2")
+	testImplementation("org.jetbrains.kotlin:kotlin-test-junit5:1.3.50")
 }
 
 tasks.withType<Test> {
