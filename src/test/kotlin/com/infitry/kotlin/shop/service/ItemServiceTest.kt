@@ -13,10 +13,10 @@ internal class ItemServiceTest @Autowired constructor(
     private val itemRepository: ItemRepository
 ) {
     @Test
-    fun 전체상품_조회() {
+    fun findAllItem() {
         // given
-        var item = Item("상품1")
-        var item2 = Item("상품2")
+        val item = Item("상품1")
+        val item2 = Item("상품2")
         itemRepository.save(item)
         itemRepository.save(item2)
         // when
@@ -26,10 +26,10 @@ internal class ItemServiceTest @Autowired constructor(
     }
 
     @Test
-    fun 단일상품_조회() {
+    fun findItem() {
         // given
-        var item = Item("상품1")
-        var item2 = Item("상품2")
+        val item = Item("상품1")
+        val item2 = Item("상품2")
         itemRepository.save(item)
         itemRepository.save(item2)
         // when
